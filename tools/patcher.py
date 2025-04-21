@@ -50,10 +50,13 @@ parser.add_argument('-all', type=bool, default=False,
 args = parser.parse_args()
 
 def main():
-
+    args.root = os.path.normpath(args.root)
+    args.dest = os.path.normpath(args.dest)
+    os.makedirs(args.dest, exist_ok=True)
     images_paths = [os.path.join(args.root, p) for p in os.listdir(args.root) if not p.endswith('.csv')]
 
     if args.csv is not None:
+        args.csv = os.path.normpath(args.csv)
         patches_buffer = PatchesBuffer(args.csv, args.root, (args.height, args.width), overlap=args.overlap, min_visibility=args.min).buffer
         patches_buffer.drop(columns='limits').to_csv(os.path.join(args.dest, 'gt.csv'), index=False)
 
