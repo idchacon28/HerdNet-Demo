@@ -82,7 +82,6 @@ Example_2.JPG,47,253,65,369,1
 An image containing *n* objects is therefore spread over *n* lines.
 
 ## Quick Start 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Alexandre-Delplanque/HerdNet/blob/main/notebooks/demo-training-testing-herdnet.ipynb)
 
 Set the seed for reproducibility
 ```python
